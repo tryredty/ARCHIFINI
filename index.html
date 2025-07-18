@@ -2435,6 +2435,54 @@
                 }
             });
         }
+                       // Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDU84fSCZo_zCzJT591pECgCJpThho0FaE",
+  authDomain: "archifini-admin.firebaseapp.com",
+  projectId: "archifini-admin",
+  storageBucket: "archifini-admin.firebasestorage.app",
+  messagingSenderId: "180531529090",
+  appId: "1:180531529090:web:c69cb85aee4324aced3b9b"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+                
+                // Show success message
+                successMessage.style.display = 'block';
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 3000);
+                
+                // Send email with changes
+                sendEmailNotification(section);
+            });
+        });
+        const heroRef = doc(db, "sections", "hero");
+
+  // Charger les données existantes
+  getDoc(heroRef).then(docSnap => {
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      document.getElementById('heroTitle').value = data.heroTitle || "";
+      document.getElementById('heroText').value = data.heroText || "";
+    }
+  });
+
+  // Sauvegarder les données
+  document.getElementById('saveHero').addEventListener('click', async () => {
+    const newData = {
+      heroTitle: document.getElementById('heroTitle').value,
+      heroText: document.getElementById('heroText').value
+    };
+    await setDoc(heroRef, newData);
+    alert('Section hero mise à jour !');
+  });
         
         // Initialize animations on load
         window.addEventListener('load', () => {
