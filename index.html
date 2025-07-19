@@ -305,12 +305,12 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(to right, rgba(13, 13, 13, 0.9), rgba(13, 13, 13, 0.5));
-            z-index: 1;
+            z-index: 2;
         }
         
         .hero-content {
             position: relative;
-            z-index: 2;
+            z-index: 3;
             max-width: 600px;
             transform: translateY(20px);
             opacity: 0;
@@ -386,7 +386,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            z-index: 0;
+            z-index: 1;
             animation: zoomOut 12s ease-in-out infinite alternate;
             will-change: transform;
         }
@@ -1820,10 +1820,10 @@
     <!-- Hero Section avec Effet Parallax -->
     <section id="home" class="hero">
         <div class="gold-particles" id="goldParticles"></div>
-        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Luxury Interior Design" class="hero-background">
+        <img src="" alt="Design d'intérieur luxueux" class="hero-background" id="heroBackgroundImage">
         <div class="hero-content">
-            <h1>Créons ensemble votre espace de rêve</h1>
-            <p>ARCHIFINI transforme vos idées en réalités avec un design d'intérieur sur mesure et des rénovations exceptionnelles à Casablanca.</p>
+            <h1 id="heroTitle">Créez ensemble votre espace de rêve</h1>
+            <p id="heroText">ARCHIFINI transforme vos idées en réalités avec un design d'intérieur sur mesure et des rénovations exceptionnelles à Casablanca.</p>
             <a href="#contact" class="btn">Parlez-nous de votre projet</a>
         </div>
     </section>
@@ -1833,49 +1833,8 @@
         <div class="section-title">
             <h2>Nos Services</h2>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-pencil-ruler"></i>
-                </div>
-                <h3>Design d'Intérieur</h3>
-                <p>Création de concepts uniques qui reflètent votre personnalité et optimisent l'espace disponible.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-home"></i>
-                </div>
-                <h3>Rénovation Complète</h3>
-                <p>Transformation totale de vos espaces avec des matériaux premium et une finition impeccable.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-couch"></i>
-                </div>
-                <h3>Décoration sur Mesure</h3>
-                <p>Sélection d'éléments décoratifs et de mobilier qui s'harmonisent parfaitement avec votre espace.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>Éclairage Design</h3>
-                <p>Conception de systèmes d'éclairage qui mettent en valeur votre intérieur et créent l'ambiance parfaite.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-vector-square"></i>
-                </div>
-                <h3>Aménagement d'Espace</h3>
-                <p>Optimisation de la disposition de vos pièces pour une circulation fluide et une utilisation maximale.</p>
-            </div>
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3>Design Commercial</h3>
-                <p>Création d'espaces professionnels qui impressionnent clients et collaborateurs tout en restant fonctionnels.</p>
-            </div>
+        <div class="services-grid" id="servicesGrid">
+            <!-- Les services seront chargés dynamiquement depuis Firebase -->
         </div>
     </section>
     
@@ -1884,35 +1843,8 @@
         <div class="section-title">
             <h2>Nos Réalisations</h2>
         </div>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Projet Résidentiel" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <h3>Appartement Luxueux</h3>
-                    <p>Casablanca, Maroc</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1617806118233-18e1de247200?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Projet Commercial" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <h3>Showroom Élégant</h3>
-                    <p>Casablanca, Maroc</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Projet Villa" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <h3>Villa Contemporaine</h3>
-                    <p>Casablanca, Maroc</p>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80" alt="Projet Bureau" class="portfolio-img">
-                <div class="portfolio-overlay">
-                    <h3>Bureau Exécutif</h3>
-                    <p>Casablanca, Maroc</p>
-                </div>
-            </div>
+        <div class="portfolio-grid" id="portfolioGrid">
+            <!-- Les projets seront chargés dynamiquement depuis Firebase -->
         </div>
     </section>
     
@@ -1923,30 +1855,15 @@
         </div>
         <div class="about-container">
             <div class="about-text">
-                <h3>Des idées sans limites pour des espaces exceptionnels</h3>
-                <p>ARCHIFINI est une entreprise de design d'intérieur et de rénovation basée à Casablanca, au Maroc. Fondée avec une passion pour la création d'espaces uniques et fonctionnels, notre équipe de designers talentueux travaille sans relâche pour transformer vos visions en réalité.</p>
-                <p>Nous croyons que chaque espace raconte une histoire, et notre mission est de créer des intérieurs qui reflètent parfaitement votre personnalité, vos goûts et votre style de vie. Que ce soit pour une résidence privée, un espace commercial ou un projet institutionnel, nous abordons chaque défi avec créativité et expertise.</p>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-label">Projets réalisés</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">98%</div>
-                        <div class="stat-label">Clients satisfaits</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Années d'expérience</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">25</div>
-                        <div class="stat-label">Prix d'excellence</div>
-                    </div>
+                <h3 id="aboutTitle">Des idées sans limites pour des espaces exceptionnels</h3>
+                <p id="aboutText1">ARCHIFINI est une entreprise de design d'intérieur et de rénovation basée à Casablanca, au Maroc. Fondée avec une passion pour la création d'espaces uniques et fonctionnels, notre équipe de designers talentueux travaille sans relâche pour transformer vos visions en réalité.</p>
+                <p id="aboutText2">Nous croyons que chaque espace raconte une histoire, et notre mission est de créer des intérieurs qui reflètent parfaitement votre personnalité, vos goûts et votre style de vie. Que ce soit pour une résidence privée, un espace commercial ou un projet institutionnel, nous abordons chaque défi avec créativité et expertise.</p>
+                <div class="stats" id="statsContainer">
+                    <!-- Les statistiques seront chargées dynamiquement -->
                 </div>
             </div>
             <div class="about-img">
-                <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" alt="Équipe ARCHIFINI">
+                <img src="" alt="Équipe ARCHIFINI" id="aboutImage">
             </div>
         </div>
     </section>
@@ -1957,10 +1874,10 @@
             <h2>Notre Signature</h2>
         </div>
         <div class="biography-container">
-            <p>Nom émergent dans l'univers de l'architecture d'intérieur au Maroc, Archifini s'impose comme une signature créative et contemporaine, à la croisée du design, de l'art de vivre et de la fonctionnalité. À travers une vision raffinée et exigeante, Archifini sublime chaque espace en y insufflant une âme, une histoire, une élégance discrète.</p>
-            <p>Puisant son inspiration entre modernité internationale et influences locales, Archifini mêle savoir-faire artisanal, matériaux nobles et solutions innovantes pour créer des intérieurs uniques, pensés sur mesure.</p>
-            <p>Né d'une passion profonde pour l'esthétique et le détail, Archifini accompagne aussi bien les particuliers que les professionnels – hôtels, bureaux, restaurants ou résidences – dans la conception d'espaces à la fois beaux, fonctionnels et durables. Chaque projet devient un terrain d'expression, un manifeste d'élégance intemporelle.</p>
-            <p>Avec une approche globale qui va de la conception à la mise en œuvre, Archifini propose bien plus qu'un simple service : une expérience de création unique, où chaque détail compte.</p>
+            <p id="bioText1">Nom émergent dans l'univers de l'architecture d'intérieur au Maroc, Archifini s'impose comme une signature créative et contemporaine, à la croisée du design, de l'art de vivre et de la fonctionnalité. À travers une vision raffinée et exigeante, Archifini sublime chaque espace en y insufflant une âme, une histoire, une élégance discrète.</p>
+            <p id="bioText2">Puisant son inspiration entre modernité internationale et influences locales, Archifini mêle savoir-faire artisanal, matériaux nobles et solutions innovantes pour créer des intérieurs uniques, pensés sur mesure.</p>
+            <p id="bioText3">Né d'une passion profonde pour l'esthétique et le détail, Archifini accompagne aussi bien les particuliers que les professionnels – hôtels, bureaux, restaurants ou résidences – dans la conception d'espaces à la fois beaux, fonctionnels et durables. Chaque projet devient un terrain d'expression, un manifeste d'élégance intemporelle.</p>
+            <p id="bioText4">Avec une approche globale qui va de la conception à la mise en œuvre, Archifini propose bien plus qu'un simple service : une expérience de création unique, où chaque détail compte.</p>
             <div class="signature">ARCHIFINI - Des idées sans limites</div>
         </div>
     </section>
@@ -1971,30 +1888,11 @@
             <h2>Notre Démarche</h2>
         </div>
         <div class="biography-container">
-            <p>Le relooking d'intérieurs est une expertise de plus en plus recherchée. Des jeunes couples qui intègrent leur premier logement en ville, en passant par les familles qui veulent un environnement de vie durable et à leur image : un grand nombre de personnes ont besoin de s'appuyer sur le savoir-faire d'un designer afin de réaliser leurs rêves de décoration et mettre en valeur leur patrimoine.</p>
-            <p>Pour répondre à ce besoin, ARCHIFINI a développé une démarche authentique à travers laquelle nous accompagnons chaque client à chaque étape du relooking.</p>
+            <p>La rénovation d'intérieurs est une expertise de plus en plus recherchée. De jeunes couples qui emménagent dans leur premier logement en ville, en passant par les familles qui veulent un environnement de vie durable qui leur ressemble : un grand nombre de personnes ont besoin de s'appuyer sur le savoir-faire d'un designer afin de réaliser leurs rêves de décoration et mettre en valeur leur patrimoine.</p>
+            <p>Pour répondre à ce besoin, ARCHIFINI a développé une démarche authentique à travers laquelle nous accompagnons chaque client à chaque étape de la rénovation.</p>
         </div>
-        <div class="process-steps">
-            <div class="process-step">
-                <div class="step-number">1</div>
-                <h3>RDV Conseils</h3>
-                <p>Écoute de vos besoins, évaluation du potentiel des lieux et définition du périmètre de la mission. Idées et conseils d'aménagement personnalisés.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">2</div>
-                <h3>Étude du Projet</h3>
-                <p>Relevé de l'existant, esquisses et propositions d'aménagement en 3D, plans techniques, sélection des matériaux et descriptif détaillé des travaux.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">3</div>
-                <h3>Consultation</h3>
-                <p>Recherche et consultation des entreprises pour l'obtention des devis les plus compétitifs, négociation des tarifs et sélection des meilleurs artisans.</p>
-            </div>
-            <div class="process-step">
-                <div class="step-number">4</div>
-                <h3>Suivi de Chantier</h3>
-                <p>Coordination des intervenants, contrôle qualité, réunions de chantier et mise en place finale du mobilier et de la décoration pour un résultat parfait.</p>
-            </div>
+        <div class="process-steps" id="processSteps">
+            <!-- Les étapes seront chargées dynamiquement -->
         </div>
     </section>
     
@@ -2003,55 +1901,8 @@
         <div class="section-title">
             <h2>Nos Tarifs</h2>
         </div>
-        <div class="pricing-tables">
-            <div class="pricing-table">
-                <div class="pricing-header">
-                    <h3>Étude de Projet</h3>
-                    <p>Conception complète de votre projet</p>
-                </div>
-                <div class="pricing-body">
-                    <div class="price">À partir de <span>500Dhs/m²</span></div>
-                    <div class="price-features">
-                        <div class="price-feature"><i class="fas fa-check"></i> Relevé de l'existant</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Esquisses 3D</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Plans techniques</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Sélection matériaux</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Descriptif des travaux</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Consultation entreprises</div>
-                    </div>
-                    <div class="price-notes">
-                        * Tarifs dégressifs selon la surface :<br>
-                        - 30m² : Forfait 18,000Dhs<br>
-                        - 30-60m² : 700Dhs/m²<br>
-                        - 61-120m² : 600Dhs/m²<br>
-                        - +121m² : 500Dhs/m²
-                    </div>
-                </div>
-            </div>
-            <div class="pricing-table">
-                <div class="pricing-header">
-                    <h3>Suivi de Chantier</h3>
-                    <p>Coordination et contrôle qualité</p>
-                </div>
-                <div class="pricing-body">
-                    <div class="price">À partir de <span>7% HT</span></div>
-                    <div class="price-features">
-                        <div class="price-feature"><i class="fas fa-check"></i> Coordination des intervenants</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Contrôle qualité</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Réunions de chantier</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Sélection décoration</div>
-                        <div class="price-feature"><i class="fas fa-check"></i> Mise en place finale</div>
-                    </div>
-                    <div class="price-notes">
-                        * Pourcentage selon montant travaux :<br>
-                        - Moins de 200,000Dhs : Forfait 18,000Dhs<br>
-                        - 200,000-600,000Dhs : 9% HT<br>
-                        - 600,000-1,200,000Dhs : 8% HT<br>
-                        - +1,200,000Dhs : 7% HT<br><br>
-                        Paiement : 50% à la signature, 30% pendant travaux, 20% à la fin
-                    </div>
-                </div>
-            </div>
+        <div class="pricing-tables" id="pricingTables">
+            <!-- Les tarifs seront chargés dynamiquement -->
         </div>
     </section>
     
@@ -2060,27 +1911,8 @@
         <div class="section-title">
             <h2>Témoignages</h2>
         </div>
-        <div class="testimonial-slider">
-            <div class="testimonial active">
-                <p class="testimonial-text">"ARCHIFINI a transformé notre appartement en un véritable havre de paix. Leur attention aux détails et leur créativité ont dépassé toutes nos attentes. Nous recommandons vivement leurs services!"</p>
-                <div class="testimonial-author">Mme Karimi</div>
-                <div class="testimonial-role">Client résidentiel</div>
-            </div>
-            <div class="testimonial">
-                <p class="testimonial-text">"Notre nouveau showroom a reçu des compliments de tous nos clients. L'équipe d'ARCHIFINI a parfaitement capté notre identité de marque et l'a traduite en un espace fonctionnel et esthétique."</p>
-                <div class="testimonial-author">M. El Amrani</div>
-                <div class="testimonial-role">Directeur Commercial</div>
-            </div>
-            <div class="testimonial">
-                <p class="testimonial-text">"Travailler avec ARCHIFINI a été une expérience exceptionnelle. Leur professionnalisme, leur écoute et leur expertise ont fait de notre projet un véritable succès. Nous prévoyons déjà de les engager pour notre prochaine propriété."</p>
-                <div class="testimonial-author">Famille Benjelloun</div>
-                <div class="testimonial-role">Propriétaires de villa</div>
-            </div>
-            <div class="slider-controls">
-                <div class="slider-dot active" data-slide="0"></div>
-                <div class="slider-dot" data-slide="1"></div>
-                <div class="slider-dot" data-slide="2"></div>
-            </div>
+        <div class="testimonial-slider" id="testimonialSlider">
+            <!-- Les témoignages seront chargés dynamiquement -->
         </div>
     </section>
     
@@ -2097,25 +1929,25 @@
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
-                        <div class="contact-text">123 Avenue des FAR, Casablanca, Maroc</div>
+                        <div class="contact-text" id="contactAddress">123 Avenue des FAR, Casablanca, Maroc</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-phone-alt"></i>
                         </div>
-                        <div class="contact-text">+212 6 12 34 56 78</div>
+                        <div class="contact-text" id="contactPhone">+212 6 12 34 56 78</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div class="contact-text">contact@archifini.ma</div>
+                        <div class="contact-text" id="contactEmail">contact@archifini.ma</div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
                             <i class="fas fa-clock"></i>
                         </div>
-                        <div class="contact-text">Lun-Ven: 9h00-18h00</div>
+                        <div class="contact-text" id="contactHours">Lun-Ven: 9h00-18h00</div>
                     </div>
                 </div>
                 <h3>Suivez-nous</h3>
@@ -2126,11 +1958,11 @@
                     <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <form class="contact-form">
-                <input type="text" placeholder="Votre nom" required>
-                <input type="email" placeholder="Votre email" required>
-                <input type="tel" placeholder="Votre téléphone">
-                <textarea placeholder="Parlez-nous de votre projet" required></textarea>
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="contactName" placeholder="Votre nom" required>
+                <input type="email" id="contactEmailInput" placeholder="Votre email" required>
+                <input type="tel" id="contactPhoneInput" placeholder="Votre téléphone">
+                <textarea id="contactMessage" placeholder="Parlez-nous de votre projet" required></textarea>
                 <button type="submit" class="submit-btn">Envoyer le message</button>
             </form>
         </div>
@@ -2156,7 +1988,7 @@
             <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <div class="copyright">
-            &copy; 2023 ARCHIFINI. Tous droits réservés.
+            &copy; <span id="currentYear"></span> ARCHIFINI. Tous droits réservés.
         </div>
     </footer>
     
@@ -2167,7 +1999,27 @@
         </a>
     </div>
     
+    <!-- Import Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-storage-compat.js"></script>
+    
     <script>
+        // Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDU84fSCZo_zCzJT591pECgCJpThho0FaE",
+            authDomain: "archifini-admin.firebaseapp.com",
+            projectId: "archifini-admin",
+            storageBucket: "archifini-admin.appspot.com",
+            messagingSenderId: "180531529090",
+            appId: "1:180531529090:web:c69cb85aee4324aced3b9b"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const storage = firebase.storage();
+
         // Loader
         window.addEventListener('load', function() {
             // Create floating particles for loader
@@ -2290,40 +2142,316 @@
                 });
             });
         });
-        
-        // Testimonial Slider
-        const testimonials = document.querySelectorAll('.testimonial');
-        const dots = document.querySelectorAll('.slider-dot');
-        let currentTestimonial = 0;
-        let autoSlideInterval;
-        
-        function showTestimonial(index) {
-            testimonials.forEach(testimonial => testimonial.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
-            
-            testimonials[index].classList.add('active');
-            dots[index].classList.add('active');
-            currentTestimonial = index;
-            
-            // Reset auto slide timer
-            clearInterval(autoSlideInterval);
-            autoSlideInterval = setInterval(nextTestimonial, 6000);
-        }
-        
-        function nextTestimonial() {
-            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
-            showTestimonial(currentTestimonial);
-        }
-        
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                showTestimonial(index);
-            });
+
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Load content from Firestore
+        document.addEventListener('DOMContentLoaded', function() {
+            loadContentFromFirestore();
         });
-        
-        // Start auto slide
-        autoSlideInterval = setInterval(nextTestimonial, 6000);
-        
+
+        async function loadContentFromFirestore() {
+            try {
+                // Hero Section
+                const heroDoc = await db.collection("sections").doc("hero").get();
+                if (heroDoc.exists) {
+                    const heroData = heroDoc.data();
+                    document.getElementById('heroTitle').textContent = heroData.title || "Créez ensemble votre espace de rêve";
+                    document.getElementById('heroText').textContent = heroData.text || "ARCHIFINI transforme vos idées en réalités avec un design d'intérieur sur mesure et des rénovations exceptionnelles à Casablanca.";
+                    
+                    if (heroData.imageUrl) {
+                        document.getElementById('heroBackgroundImage').src = heroData.imageUrl;
+                    }
+                }
+                
+                // Services Section
+                const servicesDoc = await db.collection("sections").doc("services").get();
+                if (servicesDoc.exists) {
+                    const servicesData = servicesDoc.data();
+                    const servicesGrid = document.getElementById('servicesGrid');
+                    servicesGrid.innerHTML = '';
+                    
+                    // Create service cards from Firestore data
+                    for (let i = 1; i <= 6; i++) {
+                        if (servicesData[`service${i}Title`] && servicesData[`service${i}Text`]) {
+                            const serviceCard = document.createElement('div');
+                            serviceCard.className = 'service-card';
+                            serviceCard.innerHTML = `
+                                <div class="service-icon">
+                                    <i class="fas ${getServiceIcon(i)}"></i>
+                                </div>
+                                <h3>${servicesData[`service${i}Title`]}</h3>
+                                <p>${servicesData[`service${i}Text`]}</p>
+                            `;
+                            servicesGrid.appendChild(serviceCard);
+                        }
+                    }
+                }
+                
+                // Portfolio Section
+                const portfolioDoc = await db.collection("sections").doc("portfolio").get();
+                if (portfolioDoc.exists) {
+                    const portfolioData = portfolioDoc.data();
+                    const portfolioGrid = document.getElementById('portfolioGrid');
+                    portfolioGrid.innerHTML = '';
+                    
+                    // Create portfolio items from Firestore data
+                    for (let i = 1; i <= 4; i++) {
+                        if (portfolioData[`project${i}Title`]) {
+                            const portfolioItem = document.createElement('div');
+                            portfolioItem.className = 'portfolio-item';
+                            portfolioItem.innerHTML = `
+                                <img src="${portfolioData[`project${i}ImageUrl`] || 'https://via.placeholder.com/600x400'}" alt="${portfolioData[`project${i}Title`]}" class="portfolio-img">
+                                <div class="portfolio-overlay">
+                                    <h3>${portfolioData[`project${i}Title`]}</h3>
+                                    <p>${portfolioData[`project${i}Subtitle`] || 'Casablanca, Maroc'}</p>
+                                </div>
+                            `;
+                            portfolioGrid.appendChild(portfolioItem);
+                        }
+                    }
+                }
+                
+                // About Section
+                const aboutDoc = await db.collection("sections").doc("about").get();
+                if (aboutDoc.exists) {
+                    const aboutData = aboutDoc.data();
+                    document.getElementById('aboutTitle').textContent = aboutData.title || "Des idées sans limites pour des espaces exceptionnels";
+                    document.getElementById('aboutText1').textContent = aboutData.text1 || "ARCHIFINI est une entreprise de design d'intérieur et de rénovation basée à Casablanca, au Maroc. Fondée avec une passion pour la création d'espaces uniques et fonctionnels, notre équipe de designers talentueux travaille sans relâche pour transformer vos visions en réalité.";
+                    document.getElementById('aboutText2').textContent = aboutData.text2 || "Nous croyons que chaque espace raconte une histoire, et notre mission est de créer des intérieurs qui reflètent parfaitement votre personnalité, vos goûts et votre style de vie. Que ce soit pour une résidence privée, un espace commercial ou un projet institutionnel, nous abordons chaque défi avec créativité et expertise.";
+                    
+                    if (aboutData.imageUrl) {
+                        document.getElementById('aboutImage').src = aboutData.imageUrl;
+                    }
+                    
+                    // Stats
+                    const statsContainer = document.getElementById('statsContainer');
+                    statsContainer.innerHTML = '';
+                    
+                    for (let i = 1; i <= 4; i++) {
+                        if (aboutData[`stat${i}Number`]) {
+                            const statItem = document.createElement('div');
+                            statItem.className = 'stat-item';
+                            statItem.innerHTML = `
+                                <div class="stat-number">${aboutData[`stat${i}Number`]}</div>
+                                <div class="stat-label">${aboutData[`stat${i}Label`]}</div>
+                            `;
+                            statsContainer.appendChild(statItem);
+                        }
+                    }
+                }
+                
+                // Biography Section
+                const bioDoc = await db.collection("sections").doc("biography").get();
+                if (bioDoc.exists) {
+                    const bioData = bioDoc.data();
+                    for (let i = 1; i <= 4; i++) {
+                        if (bioData[`text${i}`]) {
+                            document.getElementById(`bioText${i}`).textContent = bioData[`text${i}`];
+                        }
+                    }
+                }
+                
+                // Process Section
+                const processDoc = await db.collection("sections").doc("process").get();
+                if (processDoc.exists) {
+                    const processData = processDoc.data();
+                    const processSteps = document.getElementById('processSteps');
+                    processSteps.innerHTML = '';
+                    
+                    for (let i = 1; i <= 4; i++) {
+                        if (processData[`step${i}Title`]) {
+                            const step = document.createElement('div');
+                            step.className = 'process-step';
+                            step.innerHTML = `
+                                <div class="step-number">${i}</div>
+                                <h3>${processData[`step${i}Title`]}</h3>
+                                <p>${processData[`step${i}Text`]}</p>
+                            `;
+                            processSteps.appendChild(step);
+                        }
+                    }
+                }
+                
+                // Pricing Section
+                const pricingDoc = await db.collection("sections").doc("pricing").get();
+                if (pricingDoc.exists) {
+                    const pricingData = pricingDoc.data();
+                    const pricingTables = document.getElementById('pricingTables');
+                    pricingTables.innerHTML = '';
+                    
+                    for (let i = 1; i <= 2; i++) {
+                        if (pricingData[`plan${i}Title`]) {
+                            const table = document.createElement('div');
+                            table.className = 'pricing-table';
+                            table.innerHTML = `
+                                <div class="pricing-header">
+                                    <h3>${pricingData[`plan${i}Title`]}</h3>
+                                    <p>${pricingData[`plan${i}Subtitle`]}</p>
+                                </div>
+                                <div class="pricing-body">
+                                    <div class="price">${pricingData[`plan${i}Price`]}</div>
+                                    <div class="price-features" id="plan${i}Features"></div>
+                                    <div class="price-notes">${pricingData[`plan${i}Notes`]}</div>
+                                </div>
+                            `;
+                            pricingTables.appendChild(table);
+                            
+                            // Add features
+                            const featuresContainer = document.getElementById(`plan${i}Features`);
+                            for (let j = 1; j <= 6; j++) {
+                                if (pricingData[`plan${i}Feature${j}`]) {
+                                    const feature = document.createElement('div');
+                                    feature.className = 'price-feature';
+                                    feature.innerHTML = `
+                                        <i class="fas fa-check"></i> ${pricingData[`plan${i}Feature${j}`]}
+                                    `;
+                                    featuresContainer.appendChild(feature);
+                                }
+                            }
+                        }
+                    }
+                }
+                
+                // Testimonials Section
+                const testimonialsDoc = await db.collection("sections").doc("testimonials").get();
+                if (testimonialsDoc.exists) {
+                    const testimonialsData = testimonialsDoc.data();
+                    const testimonialSlider = document.getElementById('testimonialSlider');
+                    testimonialSlider.innerHTML = '';
+                    
+                    // Add testimonials
+                    let testimonialsHTML = '';
+                    let dotsHTML = '';
+                    
+                    for (let i = 1; i <= 3; i++) {
+                        if (testimonialsData[`testimonial${i}Text`]) {
+                            const activeClass = i === 1 ? 'active' : '';
+                            testimonialsHTML += `
+                                <div class="testimonial ${activeClass}">
+                                    <p class="testimonial-text">${testimonialsData[`testimonial${i}Text`]}</p>
+                                    <div class="testimonial-author">${testimonialsData[`testimonial${i}Author`]}</div>
+                                    <div class="testimonial-role">${testimonialsData[`testimonial${i}Role`]}</div>
+                                </div>
+                            `;
+                            
+                            dotsHTML += `
+                                <div class="slider-dot ${activeClass}" data-slide="${i-1}"></div>
+                            `;
+                        }
+                    }
+                    
+                    testimonialSlider.innerHTML = testimonialsHTML + `
+                        <div class="slider-controls">
+                            ${dotsHTML}
+                        </div>
+                    `;
+                    
+                    // Initialize testimonial slider
+                    initTestimonialSlider();
+                }
+                
+                // Contact Section
+                const contactDoc = await db.collection("sections").doc("contact").get();
+                if (contactDoc.exists) {
+                    const contactData = contactDoc.data();
+                    document.getElementById('contactAddress').textContent = contactData.address || "123 Avenue des FAR, Casablanca, Maroc";
+                    document.getElementById('contactPhone').textContent = contactData.phone || "+212 6 12 34 56 78";
+                    document.getElementById('contactEmail').textContent = contactData.email || "contact@archifini.ma";
+                    document.getElementById('contactHours').textContent = contactData.hours || "Lun-Ven: 9h00-18h00";
+                }
+                
+                // Initialize animations after content is loaded
+                setTimeout(() => {
+                    animateSections();
+                }, 500);
+                
+            } catch (error) {
+                console.error("Error loading content from Firestore:", error);
+            }
+        }
+
+        // Helper function to get appropriate icon for services
+        function getServiceIcon(index) {
+            const icons = [
+                'fa-pencil-ruler',    // Design
+                'fa-home',            // Rénovation
+                'fa-couch',           // Décoration
+                'fa-lightbulb',       // Éclairage
+                'fa-vector-square',   // Aménagement
+                'fa-building'         // Commercial
+            ];
+            return icons[index - 1] || 'fa-star';
+        }
+
+        // Initialize testimonial slider
+        function initTestimonialSlider() {
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.slider-dot');
+            let currentTestimonial = 0;
+            let autoSlideInterval;
+            
+            function showTestimonial(index) {
+                testimonials.forEach(testimonial => testimonial.classList.remove('active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                testimonials[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentTestimonial = index;
+                
+                // Reset auto slide timer
+                clearInterval(autoSlideInterval);
+                autoSlideInterval = setInterval(nextTestimonial, 6000);
+            }
+            
+            function nextTestimonial() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }
+            
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showTestimonial(index);
+                });
+            });
+            
+            // Start auto slide
+            if (testimonials.length > 0) {
+                autoSlideInterval = setInterval(nextTestimonial, 6000);
+            }
+        }
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('contactName').value;
+            const email = document.getElementById('contactEmailInput').value;
+            const phone = document.getElementById('contactPhoneInput').value;
+            const message = document.getElementById('contactMessage').value;
+            
+            try {
+                // Save contact form data to Firestore
+                await db.collection("contactSubmissions").add({
+                    name: name,
+                    email: email,
+                    phone: phone,
+                    message: message,
+                    timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                
+                // Show success message
+                alert('Votre message a été envoyé avec succès! Nous vous contacterons bientôt.');
+                
+                // Reset form
+                this.reset();
+            } catch (error) {
+                console.error("Error submitting contact form:", error);
+                alert("Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer.");
+            }
+        });
+
         // Animate sections on scroll
         function animateSections() {
             const sections = document.querySelectorAll('.section');
@@ -2435,59 +2563,6 @@
                 }
             });
         }
-                       // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyDU84fSCZo_zCzJT591pECgCJpThho0FaE",
-  authDomain: "archifini-admin.firebaseapp.com",
-  projectId: "archifini-admin",
-  storageBucket: "archifini-admin.firebasestorage.app",
-  messagingSenderId: "180531529090",
-  appId: "1:180531529090:web:c69cb85aee4324aced3b9b"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-                
-                // Show success message
-                successMessage.style.display = 'block';
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                }, 3000);
-                
-                // Send email with changes
-                sendEmailNotification(section);
-            });
-        });
-        const heroRef = doc(db, "sections", "hero");
-
-  // Charger les données existantes
-  getDoc(heroRef).then(docSnap => {
-    if (docSnap.exists()) {
-      const data = docSnap.data();
-      document.getElementById('heroTitle').value = data.heroTitle || "";
-      document.getElementById('heroText').value = data.heroText || "";
-    }
-  });
-
-  // Sauvegarder les données
-  document.getElementById('saveHero').addEventListener('click', async () => {
-    const newData = {
-      heroTitle: document.getElementById('heroTitle').value,
-      heroText: document.getElementById('heroText').value
-    };
-    await setDoc(heroRef, newData);
-    alert('Section hero mise à jour !');
-  });
-        
-        // Initialize animations on load
-        window.addEventListener('load', () => {
-            animateSections();
-        });
     </script>
 </body>
 </html>
