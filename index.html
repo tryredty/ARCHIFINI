@@ -2161,7 +2161,12 @@
                     document.getElementById('heroText').textContent = heroData.text || "ARCHIFINI transforme vos idées en réalités avec un design d'intérieur sur mesure et des rénovations exceptionnelles à Casablanca.";
                     
                     if (heroData.imageUrl) {
-                        document.getElementById('heroBackgroundImage').src = heroData.imageUrl;
+                const heroImg = document.getElementById('heroBackgroundImage');
+                heroImg.src = heroData.imageUrl + '?t=' + Date.now();
+                heroImg.onerror = function() {
+                    // Fallback si l'image ne charge pas
+                    this.src = 'https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?ixlib=rb-4.0.3&auto=format&fit=crop&w=1632&q=80';
+                };
                     }
                 }
                 
@@ -2189,42 +2194,53 @@
                     }
                 }
                 
-                // Portfolio Section
-                const portfolioDoc = await db.collection("sections").doc("portfolio").get();
-                if (portfolioDoc.exists) {
-                    const portfolioData = portfolioDoc.data();
-                    const portfolioGrid = document.getElementById('portfolioGrid');
-                    portfolioGrid.innerHTML = '';
+                 // Portfolio Section
+        const portfolioDoc = await db.collection("sections").doc("portfolio").get();
+        if (portfolioDoc.exists) {
+            const portfolioData = portfolioDoc.data();
+            const portfolioGrid = document.getElementById('portfolioGrid');
+            portfolioGrid.innerHTML = '';
+            
+            for (let i = 1; i <= 4; i++) {
+                if (portfolioData[`project${i}Title`]) {
+                    const imgUrl = portfolioData[`project${i}ImageUrl`] ? 
+                        portfolioData[`project${i}ImageUrl`] + '?t=' + Date.now() : 
+                        'https://via.placeholder.com/600x400';
                     
-                    // Create portfolio items from Firestore data
-                    for (let i = 1; i <= 4; i++) {
-                        if (portfolioData[`project${i}Title`]) {
-                            const portfolioItem = document.createElement('div');
-                            portfolioItem.className = 'portfolio-item';
-                            portfolioItem.innerHTML = `
-                                <img src="${portfolioData[`project${i}ImageUrl`] || 'https://via.placeholder.com/600x400'}" alt="${portfolioData[`project${i}Title`]}" class="portfolio-img">
-                                <div class="portfolio-overlay">
-                                    <h3>${portfolioData[`project${i}Title`]}</h3>
-                                    <p>${portfolioData[`project${i}Subtitle`] || 'Casablanca, Maroc'}</p>
-                                </div>
-                            `;
-                            portfolioGrid.appendChild(portfolioItem);
-                        }
-                    }
+                    const portfolioItem = document.createElement('div');
+                    portfolioItem.className = 'portfolio-item';
+                    portfolioItem.innerHTML = `
+                        <img src="${imgUrl}" alt="${portfolioData[`project${i}Title`]}" class="portfolio-img"
+                             onerror="this.src='https://via.placeholder.com/600x400'">
+                        <div class="portfolio-overlay">
+                            <h3>${portfolioData[`project${i}Title`]}</h3>
+                            <p>${portfolioData[`project${i}Subtitle`] || 'Casablanca, Maroc'}</p>
+                        </div>
+                    `;
+                    portfolioGrid.appendChild(portfolioItem);
                 }
+            }
+        }
                 
-                // About Section
-                const aboutDoc = await db.collection("sections").doc("about").get();
-                if (aboutDoc.exists) {
-                    const aboutData = aboutDoc.data();
-                    document.getElementById('aboutTitle').textContent = aboutData.title || "Des idées sans limites pour des espaces exceptionnels";
-                    document.getElementById('aboutText1').textContent = aboutData.text1 || "ARCHIFINI est une entreprise de design d'intérieur et de rénovation basée à Casablanca, au Maroc. Fondée avec une passion pour la création d'espaces uniques et fonctionnels, notre équipe de designers talentueux travaille sans relâche pour transformer vos visions en réalité.";
-                    document.getElementById('aboutText2').textContent = aboutData.text2 || "Nous croyons que chaque espace raconte une histoire, et notre mission est de créer des intérieurs qui reflètent parfaitement votre personnalité, vos goûts et votre style de vie. Que ce soit pour une résidence privée, un espace commercial ou un projet institutionnel, nous abordons chaque défi avec créativité et expertise.";
-                    
-                    if (aboutData.imageUrl) {
-                        document.getElementById('aboutImage').src = aboutData.imageUrl;
-                    }
-                    
+        // About Section
+        const aboutDoc = await db.collection("sections").doc("about").get();
+        if (aboutDoc.exists) {
+            const aboutData = aboutDoc.data();
+            // ... texte ...
+            
+            if (aboutData.imageUrl) {
+                const aboutImg = document.getElementById('aboutImage');
+                aboutImg.src = aboutData.imageUrl + '?t=' + Date.now();
+                aboutImg.onerror = function() {
+                    this.src = 'https://via.placeholder.com/800x600';
+                };
+            }
+        }
+        
+    } catch (error) {
+        console.error("Error loading content:", error);
+    }
+}
                     // Stats
                     const statsContainer = document.getElementById('statsContainer');
                     statsContainer.innerHTML = '';
