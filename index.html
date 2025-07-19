@@ -1820,7 +1820,7 @@
     <!-- Hero Section avec Effet Parallax -->
     <section id="home" class="hero">
         <div class="gold-particles" id="goldParticles"></div>
-        <img src="" alt="Design d'intérieur luxueux" class="hero-background" id="heroBackgroundImage">
+        <img src="" alt="Design d'intérieur luxueux" class="hero-background" id="heroBackgroundImage" loading="eager">
         <div class="hero-content">
             <h1 id="heroTitle">Créez ensemble votre espace de rêve</h1>
             <p id="heroText">ARCHIFINI transforme vos idées en réalités avec un design d'intérieur sur mesure et des rénovations exceptionnelles à Casablanca.</p>
@@ -1863,7 +1863,7 @@
                 </div>
             </div>
             <div class="about-img">
-                <img src="" alt="Équipe ARCHIFINI" id="aboutImage">
+                <img src="" alt="Équipe ARCHIFINI" id="aboutImage" loading="lazy">
             </div>
         </div>
     </section>
@@ -2020,6 +2020,13 @@
         const db = firebase.firestore();
         const storage = firebase.storage();
 
+        // Optimisation: Cache busting pour les images
+        function addCacheBusting(url) {
+            if (!url) return url;
+            const separator = url.includes('?') ? '&' : '?';
+            return `${url}${separator}t=${Date.now()}`;
+        }
+
         // Loader
         window.addEventListener('load', function() {
             // Create floating particles for loader
@@ -2161,7 +2168,7 @@
                     document.getElementById('heroText').textContent = heroData.text || "ARCHIFINI transforme vos idées en réalités avec un design d'intérieur sur mesure et des rénovations exceptionnelles à Casablanca.";
                     
                     if (heroData.imageUrl) {
-                        document.getElementById('heroBackgroundImage').src = heroData.imageUrl;
+                        document.getElementById('heroBackgroundImage').src = addCacheBusting(heroData.imageUrl);
                     }
                 }
                 
@@ -2202,7 +2209,10 @@
                             const portfolioItem = document.createElement('div');
                             portfolioItem.className = 'portfolio-item';
                             portfolioItem.innerHTML = `
-                                <img src="${portfolioData[`project${i}ImageUrl`] || 'https://via.placeholder.com/600x400'}" alt="${portfolioData[`project${i}Title`]}" class="portfolio-img">
+                                <img src="${addCacheBusting(portfolioData[`project${i}ImageUrl`]) || 'https://via.placeholder.com/600x400'}" 
+                                     alt="${portfolioData[`project${i}Title`]}" 
+                                     class="portfolio-img" 
+                                     loading="lazy">
                                 <div class="portfolio-overlay">
                                     <h3>${portfolioData[`project${i}Title`]}</h3>
                                     <p>${portfolioData[`project${i}Subtitle`] || 'Casablanca, Maroc'}</p>
@@ -2222,7 +2232,7 @@
                     document.getElementById('aboutText2').textContent = aboutData.text2 || "Nous croyons que chaque espace raconte une histoire, et notre mission est de créer des intérieurs qui reflètent parfaitement votre personnalité, vos goûts et votre style de vie. Que ce soit pour une résidence privée, un espace commercial ou un projet institutionnel, nous abordons chaque défi avec créativité et expertise.";
                     
                     if (aboutData.imageUrl) {
-                        document.getElementById('aboutImage').src = aboutData.imageUrl;
+                        document.getElementById('aboutImage').src = addCacheBusting(aboutData.imageUrl);
                     }
                     
                     // Stats
